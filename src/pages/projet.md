@@ -39,7 +39,7 @@ L'autre façon d'aider, tout aussi précieuse : l'installer, et [dire ce qui ne 
 
 ## Et ensuite
 
-La première version est là. Les prochaines étapes : l'inscription au catalogue officiel de HACS (et donc au Marketplace de Home Assistant), les traductions par la communauté, des pages Air, Véhicule et Extérieur, et des sections Automatic Dashboard à glisser dans n'importe quel tableau. Le détail est suivi sur [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard).
+La première version est là. Les prochaines étapes : l'inscription au catalogue officiel du Marketplace de Home Assistant, les traductions par la communauté et des sections Automatic Dashboard à glisser dans n'importe quel tableau. Le détail est suivi sur [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard).
 
 ## Licence et marque
 

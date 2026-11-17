@@ -236,6 +236,8 @@ p { margin: 0; }
 .etape .bouton { justify-self: start; }
 .etape-numero { font-size: 3.4rem; font-weight: 800; line-height: 1; letter-spacing: -0.05em; color: var(--accent); opacity: 0.9; margin-bottom: 0.4rem; }
 @media (max-width: 900px) { .etapes { grid-template-columns: 1fr; } }
+.adresse { font: 0.86em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--fond-alt); padding: 0.1em 0.35em; border-radius: 6px; }
+.adresse span { white-space: nowrap; }
 
 /* Le projet, sur fond sombre comme le pied de page */
 .section-sombre { background: var(--pied); color: var(--pied-texte); }

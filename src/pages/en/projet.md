@@ -39,7 +39,7 @@ The other way to help, just as valuable: install it, and [tell what goes wrong](
 
 ## What comes next
 
-The first version is here. Next steps: joining the official HACS catalog (and therefore the Home Assistant Marketplace), community translations, Air, Vehicle and Outdoor pages, and Automatic Dashboard sections to drop into any dashboard. Progress is tracked on [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard).
+The first version is here. Next steps: joining the official catalog of the Home Assistant Marketplace, community translations and Automatic Dashboard sections to drop into any dashboard. Progress is tracked on [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard).
 
 ## License and trademark
 

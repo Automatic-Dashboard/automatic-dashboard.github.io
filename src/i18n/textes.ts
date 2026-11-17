@@ -7,7 +7,7 @@ export type Langue = "fr" | "en";
 
 export const DEPOT = "https://github.com/Automatic-Dashboard/automatic-dashboard";
 export const DONS = "https://github.com/sponsors/antoninche";
-export const LIEN_HACS = "https://my.home-assistant.io/redirect/hacs_repository/?owner=Automatic-Dashboard&repository=automatic-dashboard&category=integration";
+export const LIEN_MARKETPLACE = "https://my.home-assistant.io/redirect/marketplace_repositories/";
 export const LIEN_INTEGRATION = "https://my.home-assistant.io/redirect/config_flow_start/?domain=automatic_dashboard";
 export const LIEN_TABLEAUX = "https://my.home-assistant.io/redirect/lovelace_dashboards/";
 
@@ -31,7 +31,7 @@ const BRUT = {
       surtitre: "Pour Home Assistant · libre et gratuit",
       titre: "Installez, c'est prêt.",
       chapo: "Automatic Dashboard lit les appareils, les pièces et les étages de votre Home Assistant, et en fait un tableau de bord complet et soigné. Rien à écrire, rien à configurer : quand vous ajoutez un appareil, le tableau suit.",
-      installer: "Installer avec HACS",
+      installer: "Installer",
       voirDemo: "Voir la démo",
       meta: ["Français et anglais", "Aucune donnée collectée", "Home Assistant 2026.9 et plus"],
       altHeros: "L'accueil d'Automatic Dashboard sur ordinateur : l'état de la maison en une phrase, les points à regarder, les favoris, les pièces, la météo, la pluie dans l'heure et ce qui se passe en ce moment",
@@ -78,12 +78,12 @@ const BRUT = {
       installSurtitre: "Installer",
       installTitre: "Trois étapes, deux minutes.",
       etapes: [
-        ["Téléchargez-le dans HACS", "En attendant le catalogue officiel, comme dépôt personnalisé. Puis redémarrez Home Assistant.", "Ouvrir dans HACS"],
-        ["Ajoutez l'intégration", "Un écran, deux cases : créer le tableau, et en faire celui de tout le monde si vous le souhaitez.", "Ajouter l'intégration"],
+        ["Ajoutez-le au Marketplace", "Paramètres, Marketplace, « Ajouter grâce à un lien », puis Automatic-Dashboard/automatic-dashboard.", "Ouvrir le Marketplace"],
+        ["Installez-le", "« Installer » ouvre un écran, deux cases : créer le tableau, et en faire celui de tout le monde si vous le souhaitez.", "Ajouter l'intégration"],
         ["Rechargez la page", "Le tableau est créé pour vous, dans la barre latérale. C'est prêt.", "Ouvrir les tableaux de bord"],
       ],
-      installNote: "Les boutons ouvrent la bonne page dans votre Home Assistant, par my.home-assistant.io.",
-      installDoc: "Le guide pas à pas",
+      installNote: "Les boutons ouvrent la bonne page dans votre Home Assistant, par my.home-assistant.io. Avant la version 2026.11, l'installation passe par HACS :",
+      installDoc: "le guide pas à pas explique tout",
       projetSurtitre: "Un projet libre",
       projetTitre: "Rien à vendre, rien à collecter.",
       engagements: [
@@ -133,7 +133,7 @@ const BRUT = {
       surtitre: "For Home Assistant · free and open source",
       titre: "Install it, it's ready.",
       chapo: "Automatic Dashboard reads the devices, areas and floors of your Home Assistant and turns them into a complete, polished dashboard. Nothing to write, nothing to configure: add a device, and the dashboard follows.",
-      installer: "Install with HACS",
+      installer: "Install",
       voirDemo: "See the demo",
       meta: ["French and English", "No data collected", "Home Assistant 2026.9 and newer"],
       altHeros: "The Automatic Dashboard home page on a computer: the state of the house in one sentence, things to check, favorites, rooms, the weather, rain in the next hour and what is happening right now",
@@ -180,12 +180,12 @@ const BRUT = {
       installSurtitre: "Install",
       installTitre: "Three steps, two minutes.",
       etapes: [
-        ["Download it in HACS", "Until it is in the official catalog, as a custom repository. Then restart Home Assistant.", "Open in HACS"],
-        ["Add the integration", "One screen, two boxes: create the dashboard, and make it everyone's if you like.", "Add the integration"],
+        ["Add it to the Marketplace", "Settings, Marketplace, \"Add from link\", then Automatic-Dashboard/automatic-dashboard.", "Open the Marketplace"],
+        ["Install it", "\"Install\" opens one screen, two boxes: create the dashboard, and make it everyone's if you like.", "Add the integration"],
         ["Reload the page", "The dashboard is created for you, in the sidebar. It's ready.", "Open dashboards"],
       ],
-      installNote: "The buttons open the right page in your Home Assistant, through my.home-assistant.io.",
-      installDoc: "The step-by-step guide",
+      installNote: "The buttons open the right page in your Home Assistant, through my.home-assistant.io. Before version 2026.11, installation goes through HACS:",
+      installDoc: "the step-by-step guide explains it all",
       projetSurtitre: "A free project",
       projetTitre: "Nothing to sell, nothing to collect.",
       engagements: [

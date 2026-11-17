@@ -5,22 +5,25 @@ page: documentation/
 titre: Documentation
 surtitre: Documentation
 chapo: Install Automatic Dashboard in two minutes, understand what it shows, make it your own, and find help.
-description: Install Automatic Dashboard in Home Assistant with HACS, the pages, the three modes, appearance, favorites, Notify me, the wall tablet and frequently asked questions.
+description: Install Automatic Dashboard in Home Assistant from the Marketplace, the pages, the three modes, appearance, favorites, Notify me, the wall tablet and frequently asked questions.
 ---
 
 ## Install
 
-You need **Home Assistant 2026.9 or newer** and **HACS**, the Home Assistant community store. If HACS is not installed yet, follow [its installation guide](https://hacs.xyz/docs/use/) first.
+You need **Home Assistant 2026.9 or newer**. Since 2026.11, community projects are installed from the **Marketplace** built into Home Assistant; before that, from HACS (see below).
 
-1. **Download Automatic Dashboard in HACS.** This button opens the right page in your Home Assistant: [Open Automatic Dashboard in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Automatic-Dashboard&repository=automatic-dashboard&category=integration). Choose *Download*, then **restart Home Assistant** (*Settings*, *System*, top right).
-2. **Add the integration**: [Add Automatic Dashboard](https://my.home-assistant.io/redirect/config_flow_start/?domain=automatic_dashboard). One screen, two boxes:
+1. **Open the Marketplace**: *Settings*, *Marketplace*, or this link: [Open the Marketplace](https://my.home-assistant.io/redirect/marketplace_repositories/). The first time, a warning appears: tick the box to accept the risks, then *Continue*.
+2. **Add Automatic Dashboard**: in the top right corner, *Add from link*, type `Automatic-Dashboard/automatic-dashboard`, then *Add*. The first time, the Marketplace asks you to connect GitHub: it shows a code that you approve on github.com. No password to give.
+3. **Install it**: open Automatic Dashboard, then *Install*. The integration screen opens by itself, with two boxes:
    - *Create the Automatic Dashboard dashboard* (ticked): the dashboard is created for you;
    - *Make it the default dashboard for everyone*: everyone lands on it when opening Home Assistant.
-3. **Reload the page.** "Your Automatic Dashboard dashboard is ready" appears: it is in the sidebar.
+4. **Reload the page.** "Your Automatic Dashboard dashboard is ready" appears: it is in the sidebar.
 
 That's it: the dashboard builds itself from your areas, floors and devices, and follows what you add. The Automatic Dashboard theme, light and dark, is installed with the integration.
 
-Until Automatic Dashboard is in the official HACS catalog, the button in step 1 adds it as a "custom repository": that is expected, nothing else to do.
+Once Automatic Dashboard is in the official catalog, step 2 goes away: you'll just search for it in the Marketplace.
+
+**With Home Assistant 2026.9 or 2026.10**, use HACS: [Open Automatic Dashboard in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Automatic-Dashboard&repository=automatic-dashboard&category=integration), *Download*, restart Home Assistant (*Settings*, *System*, top right), then [add the integration](https://my.home-assistant.io/redirect/config_flow_start/?domain=automatic_dashboard) and follow steps 3 and 4.
 
 ## What you see
 
@@ -197,9 +200,9 @@ frontend:
 
 ## Update and uninstall
 
-**Update**: HACS announces new versions, as for any integration. After updating, restart Home Assistant, then reload the page.
+**Update**: new versions appear in *Settings*, *Updates*, like Home Assistant's own (in HACS before 2026.11). After updating, restart Home Assistant, then reload the page.
 
-**Uninstall**: delete the dashboard (*Settings*, *Dashboards*), then the integration (*Settings*, *Devices & services*, Automatic Dashboard), then Automatic Dashboard in HACS. The theme (`themes/automatic_dashboard.yaml`), the labels and the "Notify me" automations stay: delete them if you no longer want them.
+**Uninstall**: delete the dashboard (*Settings*, *Dashboards*), then the integration (*Settings*, *Devices & services*, Automatic Dashboard), then Automatic Dashboard itself, in the Marketplace (*Installed* tab), or in HACS before 2026.11. The theme (`themes/automatic_dashboard.yaml`), the labels and the "Notify me" automations stay: delete them if you no longer want them.
 
 ## Contribute
 

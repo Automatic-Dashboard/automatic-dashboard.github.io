@@ -5,22 +5,25 @@ page: documentation/
 titre: Documentation
 surtitre: Documentation
 chapo: Installer Automatic Dashboard en deux minutes, comprendre ce qu'il montre, le régler à votre goût, et trouver de l'aide.
-description: Installer Automatic Dashboard dans Home Assistant avec HACS, les pages, les trois modes, l'apparence, les favoris, Me prévenir, la tablette murale et les questions fréquentes.
+description: Installer Automatic Dashboard dans Home Assistant avec le Marketplace, les pages, les trois modes, l'apparence, les favoris, Me prévenir, la tablette murale et les questions fréquentes.
 ---
 
 ## Installer
 
-Il faut **Home Assistant 2026.9 ou plus récent** et **HACS**, la boutique communautaire de Home Assistant. Si HACS n'est pas encore installé chez vous, suivez d'abord [son guide d'installation](https://hacs.xyz/docs/use/).
+Il faut **Home Assistant 2026.9 ou plus récent**. Depuis la version 2026.11, les projets de la communauté s'installent par le **Marketplace**, intégré à Home Assistant ; avant, par HACS (voir plus bas).
 
-1. **Téléchargez Automatic Dashboard dans HACS.** Ce bouton ouvre la bonne page dans votre Home Assistant : [Ouvrir Automatic Dashboard dans HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Automatic-Dashboard&repository=automatic-dashboard&category=integration). Choisissez *Télécharger*, puis **redémarrez Home Assistant** (*Paramètres*, *Système*, en haut à droite).
-2. **Ajoutez l'intégration** : [Ajouter Automatic Dashboard](https://my.home-assistant.io/redirect/config_flow_start/?domain=automatic_dashboard). Un écran, deux cases :
+1. **Ouvrez le Marketplace** : *Paramètres*, *Marketplace*, ou ce lien : [Ouvrir le Marketplace](https://my.home-assistant.io/redirect/marketplace_repositories/). La première fois, un avertissement s'affiche : cochez *J'ai compris les risques et j'accepte*, puis *Continuer*.
+2. **Ajoutez Automatic Dashboard** : en haut à droite, *Ajouter grâce à un lien*, tapez `Automatic-Dashboard/automatic-dashboard`, puis *Ajouter*. La première fois, le Marketplace demande de connecter GitHub : il affiche un code, que vous validez sur github.com. Aucun mot de passe à donner.
+3. **Installez-le** : ouvrez Automatic Dashboard, puis *Installer*. L'écran de l'intégration s'ouvre tout seul, avec deux cases :
    - *Créer le tableau Automatic Dashboard* (cochée) : le tableau est créé pour vous ;
    - *En faire le tableau par défaut pour tout le monde* : chacun arrive dessus en ouvrant Home Assistant.
-3. **Rechargez la page.** « Votre tableau Automatic Dashboard est prêt » s'affiche : il est dans la barre latérale.
+4. **Rechargez la page.** « Votre tableau Automatic Dashboard est prêt » s'affiche : il est dans la barre latérale.
 
 C'est tout : le tableau se construit à partir de vos pièces, de vos étages et de vos appareils, et suit tout seul ce que vous ajoutez. Le thème Automatic Dashboard, clair et sombre, est installé avec l'intégration.
 
-Tant qu'Automatic Dashboard n'est pas dans le catalogue officiel de HACS, le bouton de l'étape 1 l'ajoute comme « dépôt personnalisé » : c'est normal, rien d'autre à faire.
+Quand Automatic Dashboard sera dans le catalogue officiel, l'étape 2 disparaîtra : il suffira de le chercher dans le Marketplace.
+
+**Avec Home Assistant 2026.9 ou 2026.10**, passez par HACS : [Ouvrir Automatic Dashboard dans HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=Automatic-Dashboard&repository=automatic-dashboard&category=integration), *Télécharger*, redémarrez Home Assistant (*Paramètres*, *Système*, en haut à droite), puis [ajoutez l'intégration](https://my.home-assistant.io/redirect/config_flow_start/?domain=automatic_dashboard) et suivez les étapes 3 et 4.
 
 ## Ce que vous voyez
 
@@ -197,9 +200,9 @@ frontend:
 
 ## Mettre à jour et désinstaller
 
-**Mettre à jour** : HACS signale les nouvelles versions, comme pour toute intégration. Après la mise à jour, redémarrez Home Assistant, puis rechargez la page.
+**Mettre à jour** : les nouvelles versions apparaissent dans *Paramètres*, *Mises à jour*, comme celles de Home Assistant (dans HACS avant 2026.11). Après la mise à jour, redémarrez Home Assistant, puis rechargez la page.
 
-**Désinstaller** : supprimez le tableau (*Paramètres*, *Tableaux de bord*), puis l'intégration (*Paramètres*, *Appareils et services*, Automatic Dashboard), puis Automatic Dashboard dans HACS. Le thème (`themes/automatic_dashboard.yaml`), les étiquettes et les automatismes « Me prévenir » restent : supprimez-les si vous n'en voulez plus.
+**Désinstaller** : supprimez le tableau (*Paramètres*, *Tableaux de bord*), puis l'intégration (*Paramètres*, *Appareils et services*, Automatic Dashboard), puis Automatic Dashboard lui-même, dans le Marketplace (onglet *Installé*), ou dans HACS avant 2026.11. Le thème (`themes/automatic_dashboard.yaml`), les étiquettes et les automatismes « Me prévenir » restent : supprimez-les si vous n'en voulez plus.
 
 ## Contribuer
 
