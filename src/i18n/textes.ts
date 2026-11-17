@@ -40,7 +40,7 @@ const BRUT = {
       fonctionsTitre: "Une phrase d'abord, les chiffres ensuite.",
       fonctionsChapo: "Chaque page répond à sa question avant de montrer les détails. Et chaque carte n'apparaît que si votre maison a de quoi la remplir.",
       tuiles: {
-        etat: ["L'état de la maison", "« Fermez la fenêtre du salon : le chauffage tourne. » Des conseils plutôt que des constats, la sécurité en tête quand tout le monde est parti, et un point s'ignore jusqu'à demain."],
+        etat: ["L'état de la maison", "« Fermez la fenêtre du salon : le chauffage tourne. » Des conseils plutôt que des constats, la sécurité en tête quand tout le monde est parti, et un point s'ignore tant qu'il ne change pas."],
         pluie: ["La pluie dans l'heure", "Avec Météo-France : « Pluie faible dans 15 min », une barre minute par minute, et la vigilance du département."],
         moment: ["En ce moment", "Ce qui joue, qui est à la maison, le prochain rendez-vous, le lave-linge qui tourne, la liste de courses."],
         piece: ["Chaque pièce", "Sa température, son humidité, ce qui est allumé, ouvert ou en marche, d'un coup d'œil."],
@@ -78,9 +78,9 @@ const BRUT = {
       installSurtitre: "Installer",
       installTitre: "Trois étapes, deux minutes.",
       etapes: [
-        ["Ajoutez Automatic Dashboard à HACS", "En attendant le catalogue officiel, comme dépôt personnalisé.", "Ouvrir dans HACS"],
-        ["Ajoutez l'intégration", "Un seul écran, aucune question. Puis redémarrez Home Assistant.", "Ajouter l'intégration"],
-        ["Créez le tableau", "Tableaux de bord, Ajouter, rubrique « Tableaux de bord communautaires », Automatic Dashboard.", "Ouvrir les tableaux de bord"],
+        ["Téléchargez-le dans HACS", "En attendant le catalogue officiel, comme dépôt personnalisé. Puis redémarrez Home Assistant.", "Ouvrir dans HACS"],
+        ["Ajoutez l'intégration", "Un écran, deux cases : créer le tableau, et en faire celui de tout le monde si vous le souhaitez.", "Ajouter l'intégration"],
+        ["Rechargez la page", "Le tableau est créé pour vous, dans la barre latérale. C'est prêt.", "Ouvrir les tableaux de bord"],
       ],
       installNote: "Les boutons ouvrent la bonne page dans votre Home Assistant, par my.home-assistant.io.",
       installDoc: "Le guide pas à pas",
@@ -142,7 +142,7 @@ const BRUT = {
       fonctionsTitre: "A sentence first, the numbers after.",
       fonctionsChapo: "Each page answers its question before showing the details. And each card only appears when your home has something to fill it with.",
       tuiles: {
-        etat: ["The state of the house", "\"Close the living room window: the heating is on.\" Advice rather than facts, security first when everyone has left, and any item can be ignored until tomorrow."],
+        etat: ["The state of the house", "\"Close the living room window: the heating is on.\" Advice rather than facts, security first when everyone has left, and any item can be ignored while it doesn't change."],
         pluie: ["Rain in the next hour", "With Météo-France: \"Light rain in 15 min\", a minute-by-minute bar, and the weather warning for your area."],
         moment: ["Right now", "What is playing, who is home, the next appointment, the washing machine running, the shopping list."],
         piece: ["Every room", "Its temperature, its humidity, what is on, open or running, at a glance."],
@@ -180,9 +180,9 @@ const BRUT = {
       installSurtitre: "Install",
       installTitre: "Three steps, two minutes.",
       etapes: [
-        ["Add Automatic Dashboard to HACS", "Until it is in the official catalog, as a custom repository.", "Open in HACS"],
-        ["Add the integration", "One screen, no questions. Then restart Home Assistant.", "Add the integration"],
-        ["Create the dashboard", "Dashboards, Add, \"Community dashboards\" section, Automatic Dashboard.", "Open dashboards"],
+        ["Download it in HACS", "Until it is in the official catalog, as a custom repository. Then restart Home Assistant.", "Open in HACS"],
+        ["Add the integration", "One screen, two boxes: create the dashboard, and make it everyone's if you like.", "Add the integration"],
+        ["Reload the page", "The dashboard is created for you, in the sidebar. It's ready.", "Open dashboards"],
       ],
       installNote: "The buttons open the right page in your Home Assistant, through my.home-assistant.io.",
       installDoc: "The step-by-step guide",
