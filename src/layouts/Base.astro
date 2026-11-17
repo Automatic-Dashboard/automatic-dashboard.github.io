@@ -42,6 +42,11 @@ const actif = (cible: string) => (page === cible ? "page" : undefined);
     <meta property="og:description" content={description ?? tx.description} />
     <meta property="og:url" content={adresse(lang)} />
     <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_US"} />
+    <meta property="og:image" content={new URL(`/partage/automatic-dashboard-${lang}.jpg`, Astro.site).href} />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:alt" content={tx.altPartage} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <a class="aller" href="#contenu">{tx.nav.aller}</a>

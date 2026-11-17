@@ -17,6 +17,7 @@ const BRUT = {
   fr: {
     titreSite: "Automatic Dashboard — un tableau de bord complet pour Home Assistant",
     description: "Installez, c'est prêt. Automatic Dashboard construit tout seul un tableau de bord soigné à partir des appareils de votre Home Assistant. Libre, gratuit, sans collecte de données.",
+    altPartage: "Automatic Dashboard : « Installez, c'est prêt. » L'accueil du tableau sur ordinateur et sur téléphone.",
     nav: { fonctions: "Ce qu'il fait", demo: "Démo", documentation: "Documentation", projet: "Le projet", github: "GitHub", menu: "Menu", langue: "English", langueCode: "EN", aller: "Aller au contenu" },
     pied: {
       initie: "Un projet communautaire et libre, initié par Antonin Chenavaz.",
@@ -119,6 +120,7 @@ const BRUT = {
   en: {
     titreSite: "Automatic Dashboard — a complete dashboard for Home Assistant",
     description: "Install it, it's ready. Automatic Dashboard builds a polished dashboard on its own from the devices in your Home Assistant. Free, open source, no data collected.",
+    altPartage: "Automatic Dashboard: \"Install it, it's ready.\" The dashboard home on a computer and a phone.",
     nav: { fonctions: "What it does", demo: "Demo", documentation: "Documentation", projet: "The project", github: "GitHub", menu: "Menu", langue: "Français", langueCode: "FR", aller: "Skip to content" },
     pied: {
       initie: "A free community project, started by Antonin Chenavaz.",
