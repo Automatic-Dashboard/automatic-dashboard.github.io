@@ -1,0 +1,20 @@
+---
+import Demo from "../../components/Demo.astro";
+import { chemin, TEXTES } from "../../i18n/textes";
+import Base from "../../layouts/Base.astro";
+const tx = TEXTES.en.demo;
+---
+<Base lang="en" page="demo/" titre={tx.titrePage} description={tx.description}>
+  <div class="page-tete">
+    <div class="conteneur">
+      <p class="surtitre">Automatic Dashboard</p>
+      <h1>{tx.titre}</h1>
+      <p class="chapo">{tx.chapo}</p>
+    </div>
+  </div>
+  <div class="conteneur"><Demo lang="en" /></div>
+  <div class="conteneur fin-de-page">
+    <p>{tx.essayer}</p>
+    <a class="bouton bouton-plein" href={`${chemin("en")}#installer`}>{TEXTES.en.accueil.installer}</a>
+  </div>
+</Base>

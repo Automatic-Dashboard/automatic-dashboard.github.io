@@ -1,0 +1,38 @@
+---
+// Avant / après sur la même maison : la vue d'ensemble native de Home Assistant, puis
+// Automatic Dashboard. Un curseur découvre l'une ou l'autre ; sans JavaScript, on voit les deux moitiés.
+import Capture from "./Capture.astro";
+import { type Langue, TEXTES } from "../i18n/textes";
+
+interface Props { lang: Langue }
+const { lang } = Astro.props;
+const tx = TEXTES[lang].accueil;
+---
+<figure class="comparaison">
+  <div class="comparaison-cadre">
+    <Capture class="comparaison-apres" lang={lang} maison="famille" nom="accueil-ordinateur" alt={tx.compAutomatic}
+      largeurs={[1180, 1440, 2360]} sizes="(min-width: 1240px) 1180px, 94vw" clairSeulement />
+    <div class="comparaison-avant">
+      <Capture lang={lang} maison="famille" nom="vue-native-ordinateur" alt={tx.compNative}
+        largeurs={[1180, 1440, 2360]} sizes="(min-width: 1240px) 1180px, 94vw" />
+    </div>
+    <span class="comparaison-ligne" aria-hidden="true"></span>
+    <span class="etiquette etiquette-avant" aria-hidden="true">{tx.compNative}</span>
+    <span class="etiquette etiquette-apres" aria-hidden="true">{tx.compAutomatic}</span>
+  </div>
+  <label class="comparaison-curseur">
+    <span class="visuellement-cache">{tx.compCurseur}</span>
+    <input type="range" min="0" max="100" value="50" step="1" />
+  </label>
+</figure>
+
+<script>
+  // Le curseur règle la part de la vue native qui reste visible (variable CSS --position).
+  for (const figure of document.querySelectorAll<HTMLElement>(".comparaison")) {
+    const curseur = figure.querySelector<HTMLInputElement>("input[type=range]");
+    const regler = () => figure.style.setProperty("--position", `${curseur?.value ?? 50}%`);
+    curseur?.addEventListener("input", regler);
+    figure.classList.add("interactive");
+    regler();
+  }
+</script>

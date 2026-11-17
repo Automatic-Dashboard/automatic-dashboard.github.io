@@ -1,0 +1,165 @@
+---
+// La page d'accueil, commune au français et à l'anglais.
+import Capture from "./Capture.astro";
+import Comparaison from "./Comparaison.astro";
+import { chemin, LIEN_HACS, LIEN_INTEGRATION, LIEN_TABLEAUX, type Langue, TEXTES } from "../i18n/textes";
+
+interface Props { lang: Langue }
+const { lang } = Astro.props;
+const tx = TEXTES[lang].accueil;
+const liensEtapes = [LIEN_HACS, LIEN_INTEGRATION, LIEN_TABLEAUX];
+const t = tx.tuiles;
+---
+<section class="ouverture">
+  <div class="conteneur">
+    <div class="ouverture-tete">
+      <div>
+        <p class="surtitre">{tx.surtitre}</p>
+        <h1>{tx.titre.split(", ").map((morceau, i, tous) => <span class="ligne-titre">{morceau}{i < tous.length - 1 ? "," : ""}</span>)}</h1>
+      </div>
+      <div class="ouverture-chapo">
+        <p class="chapo">{tx.chapo}</p>
+        <div class="actions">
+          <a class="bouton bouton-plein" href="#installer">{tx.installer}</a>
+          <a class="bouton bouton-contour" href={chemin(lang, "demo/")}>{tx.voirDemo}</a>
+        </div>
+        <ul class="meta">{tx.meta.map((m) => <li>{m}</li>)}</ul>
+      </div>
+    </div>
+    <div class="ouverture-visuel">
+      <Capture class="ecran ecran-ordinateur" lang={lang} maison="famille" nom="accueil-ordinateur" alt={tx.altHeros}
+        largeurs={[960, 1440, 2160, 2880]} sizes="(min-width: 1240px) 1180px, 94vw" chargement="eager" />
+      <Capture class="ecran ecran-telephone" lang={lang} maison="famille" nom="accueil-telephone" alt={tx.altTelephone}
+        largeurs={[390, 780, 1170]} sizes="(min-width: 900px) 250px, 30vw" chargement="eager" />
+    </div>
+  </div>
+</section>
+
+<section id="fonctions" class="section">
+  <div class="conteneur">
+    <header class="section-tete">
+      <p class="surtitre">{tx.fonctionsSurtitre}</p>
+      <h2>{tx.fonctionsTitre}</h2>
+      <p class="chapo">{tx.fonctionsChapo}</p>
+    </header>
+    <div class="bento">
+      <article class="tuile t-etat">
+        <div class="tuile-texte"><h3>{t.etat[0]}</h3><p>{t.etat[1]}</p></div>
+        <div class="tuile-visuel pile">
+          <Capture lang={lang} maison="famille" nom="carte-ouverture" alt="" largeurs={[700, 1400]} sizes="(min-width: 1000px) 640px, 90vw" />
+          <Capture lang={lang} maison="famille" nom="carte-points" alt="" largeurs={[907, 1814]} sizes="(min-width: 1000px) 640px, 90vw" />
+        </div>
+      </article>
+      <article class="tuile t-pluie">
+        <div class="tuile-texte"><h3>{t.pluie[0]}</h3><p>{t.pluie[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-pluie" alt="" largeurs={[438, 876]} sizes="(min-width: 1000px) 420px, 90vw" /></div>
+      </article>
+      <article class="tuile t-moment">
+        <div class="tuile-texte"><h3>{t.moment[0]}</h3><p>{t.moment[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-moment" alt="" largeurs={[438, 876]} sizes="(min-width: 1000px) 420px, 90vw" /></div>
+      </article>
+      <article class="tuile t-climat">
+        <div class="tuile-texte"><h3>{t.climat[0]}</h3><p>{t.climat[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-heros-climat" alt="" largeurs={[907, 1814]} sizes="(min-width: 1000px) 720px, 90vw" /></div>
+      </article>
+      <article class="tuile t-piece">
+        <div class="tuile-texte"><h3>{t.piece[0]}</h3><p>{t.piece[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-piece" alt="" largeurs={[450, 900]} sizes="(min-width: 1000px) 340px, 90vw" /></div>
+      </article>
+      <article class="tuile t-confort">
+        <div class="tuile-texte"><h3>{t.confort[0]}</h3><p>{t.confort[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-confort" alt="" largeurs={[907, 1814]} sizes="(min-width: 1000px) 540px, 90vw" /></div>
+      </article>
+      <article class="tuile t-systeme">
+        <div class="tuile-texte"><h3>{t.systeme[0]}</h3><p>{t.systeme[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-heros-systeme" alt="" largeurs={[907, 1814]} sizes="(min-width: 1000px) 540px, 90vw" /></div>
+      </article>
+      <article class="tuile t-ranger">
+        <div class="tuile-texte"><h3>{t.ranger[0]}</h3><p>{t.ranger[1]}</p></div>
+        <div class="tuile-visuel"><Capture lang={lang} maison="famille" nom="carte-a-ranger" alt="" largeurs={[1032, 2064]} sizes="(min-width: 1000px) 760px, 90vw" /></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="conteneur">
+    <header class="section-tete">
+      <p class="surtitre">{tx.modesSurtitre}</p>
+      <h2>{tx.modesTitre}</h2>
+      <p class="chapo">{tx.modesChapo}</p>
+    </header>
+    <ol class="modes">
+      <li class="mode mode-decouverte">
+        <div class="mode-texte"><span class="mode-quantite">{tx.modes[0][1]}</span><h3>{tx.modes[0][0]}</h3><p>{tx.modes[0][2]}</p></div>
+        <Capture class="ecran ecran-telephone" lang={lang} maison="debutant" nom="accueil-telephone" alt={tx.altModes[0]} largeurs={[390, 780]} sizes="260px" />
+      </li>
+      <li class="mode mode-maison">
+        <div class="mode-texte"><span class="mode-quantite">{tx.modes[1][1]}</span><h3>{tx.modes[1][0]}</h3><p>{tx.modes[1][2]}</p></div>
+        <Capture class="ecran" lang={lang} maison="famille" nom="accueil-ordinateur" alt={tx.altModes[1]} largeurs={[720, 1440]} sizes="(min-width: 1000px) 460px, 90vw" />
+      </li>
+      <li class="mode mode-complet">
+        <div class="mode-texte"><span class="mode-quantite">{tx.modes[2][1]}</span><h3>{tx.modes[2][0]}</h3><p>{tx.modes[2][2]}</p></div>
+        <Capture class="ecran" lang={lang} maison="complete" nom="accueil-ordinateur" alt={tx.altModes[2]} largeurs={[720, 1440]} sizes="(min-width: 1000px) 460px, 90vw" />
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="conteneur">
+    <header class="section-tete">
+      <p class="surtitre">{tx.compSurtitre}</p>
+      <h2>{tx.compTitre}</h2>
+      <p class="chapo">{tx.compChapo}</p>
+    </header>
+    <Comparaison lang={lang} />
+    <ul class="points-forts">{tx.compPoints.map((p) => <li>{p}</li>)}</ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="conteneur reglages">
+    <div class="reglages-texte">
+      <p class="surtitre">{tx.reglagesSurtitre}</p>
+      <h2>{tx.reglagesTitre}</h2>
+      <p class="chapo">{tx.reglagesChapo}</p>
+      <dl>{tx.reglages.map(([titre, texte]) => <div><dt>{titre}</dt><dd>{texte}</dd></div>)}</dl>
+    </div>
+    <Capture class="ecran reglages-visuel" lang={lang} maison="famille" nom="editeur-ordinateur" alt={tx.altEditeur}
+      largeurs={[960, 1440, 2880]} sizes="(min-width: 1000px) 700px, 94vw" clairSeulement />
+  </div>
+</section>
+
+<section id="installer" class="section">
+  <div class="conteneur">
+    <header class="section-tete">
+      <p class="surtitre">{tx.installSurtitre}</p>
+      <h2>{tx.installTitre}</h2>
+    </header>
+    <ol class="etapes">
+      {tx.etapes.map(([titre, texte, bouton], i) => (
+        <li class="etape">
+          <span class="etape-numero" aria-hidden="true">{i + 1}</span>
+          <h3>{titre}</h3>
+          <p>{texte}</p>
+          <a class={i === 0 ? "bouton bouton-plein" : "bouton bouton-contour"} href={liensEtapes[i]}>{bouton}</a>
+        </li>
+      ))}
+    </ol>
+    <p class="note">{tx.installNote} <a href={`${chemin(lang, "documentation/")}#installer`}>{tx.installDoc}</a></p>
+  </div>
+</section>
+
+<section class="section section-sombre">
+  <div class="conteneur">
+    <header class="section-tete">
+      <p class="surtitre">{tx.projetSurtitre}</p>
+      <h2>{tx.projetTitre}</h2>
+    </header>
+    <ul class="engagements">
+      {tx.engagements.map(([titre, texte]) => <li><h3>{titre}</h3><p>{texte}</p></li>)}
+    </ul>
+    <p class="signature">{tx.projetSignature} <a href={chemin(lang, "projet/")}>{tx.projetLien}</a></p>
+  </div>
+</section>

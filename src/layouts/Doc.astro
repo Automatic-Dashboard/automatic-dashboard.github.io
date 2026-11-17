@@ -1,0 +1,32 @@
+---
+// Les pages de texte (documentation, projet), écrites en Markdown : une table des matières
+// collée sur le côté sur grand écran, le texte à une largeur de lecture confortable.
+import Base from "./Base.astro";
+import type { Langue } from "../i18n/textes";
+import { typographierHtml } from "../typographie";
+
+interface Props {
+  frontmatter: { titre: string; description: string; lang: Langue; page: string; surtitre: string; chapo: string };
+  headings: { depth: number; slug: string; text: string }[];
+}
+const { frontmatter: f, headings } = Astro.props;
+const sommaire = headings.filter((h) => h.depth === 2);
+const rendu = await Astro.slots.render("default");
+const contenu = f.lang === "fr" ? typographierHtml(rendu) : rendu;
+---
+<Base lang={f.lang} page={f.page} titre={`${f.titre} — Automatic Dashboard`} description={f.description}>
+  <div class="page-tete">
+    <div class="conteneur">
+      <p class="surtitre">{f.surtitre}</p>
+      <h1>{f.titre}</h1>
+      <p class="chapo">{f.chapo}</p>
+    </div>
+  </div>
+  <div class="conteneur doc">
+    <nav class="sommaire" aria-label={f.lang === "fr" ? "Sommaire" : "Contents"}>
+      <p>{f.lang === "fr" ? "Sur cette page" : "On this page"}</p>
+      <ol>{sommaire.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+    </nav>
+    <article class="prose"><Fragment set:html={contenu} /></article>
+  </div>
+</Base>

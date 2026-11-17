@@ -1,0 +1,132 @@
+---
+// La démo : les captures des trois maisons d'essai, à parcourir par maison, page, écran et thème.
+// Toutes les variantes sont préparées à la construction ; le script ne fait que changer d'image.
+// Sans JavaScript, la première capture reste visible et le lien de chaque choix reste utilisable.
+import { getImage } from "astro:assets";
+import { capturesDe } from "../captures";
+import { type Langue, TEXTES } from "../i18n/textes";
+
+interface Props { lang: Langue }
+const { lang } = Astro.props;
+const tx = TEXTES[lang].demo;
+
+const MAISONS = ["debutant", "famille", "complete"];
+const PAGES = ["accueil", "climat", "energie", "securite", "systeme", "salon"];
+const ECRANS = ["ordinateur", "telephone"];
+const THEMES = ["clair", "sombre"];
+
+const toutes = capturesDe(lang);
+type Rendu = { src: string; srcset: string; width: number; height: number };
+const images: Record<string, Rendu> = {};
+for (const maison of MAISONS) {
+  for (const page of PAGES) {
+    for (const ecran of ECRANS) {
+      for (const theme of THEMES) {
+        const source = toutes[`${maison}/${page}-${ecran}-${theme}`];
+        if (!source) continue;
+        const largeurs = ecran === "ordinateur" ? [960, 1440, 2160] : [390, 780, 1170];
+        const rendus = await Promise.all(largeurs.filter((l) => l <= source.width).map((width) => getImage({ src: source, width, format: "webp", quality: 82 })));
+        images[`${maison}/${page}/${ecran}/${theme}`] = {
+          src: rendus[rendus.length - 1].src,
+          srcset: rendus.map((r) => `${r.src} ${r.attributes.width}w`).join(", "),
+          width: source.width,
+          height: source.height,
+        };
+      }
+    }
+  }
+}
+const pagesDe = (maison: string) => PAGES.filter((p) => images[`${maison}/${p}/ordinateur/clair`]);
+const depart = images["famille/accueil/ordinateur/clair"];
+const alt = (m: string, p: string, e: string, t: string) => tx.alt(tx.maisons[m][0], tx.pages[p], tx.ecrans[e], tx.themes[t]);
+const textes = { maisons: tx.maisons, pages: tx.pages, ecrans: tx.ecrans, themes: tx.themes, modele: tx.alt("{m}", "{p}", "{e}", "{t}") };
+---
+<div class="demo" data-images={JSON.stringify(images)} data-pages={JSON.stringify(Object.fromEntries(MAISONS.map((m) => [m, pagesDe(m)])))} data-textes={JSON.stringify(textes)}>
+  <form class="demo-choix" aria-controls="demo-ecran">
+    <fieldset class="choix-maison">
+      <legend>{tx.maison}</legend>
+      {MAISONS.map((m) => (
+        <label class="carte-choix">
+          <input type="radio" name="maison" value={m} checked={m === "famille"} />
+          <span><strong>{tx.maisons[m][0]}</strong><small>{tx.maisons[m][1]}</small></span>
+        </label>
+      ))}
+    </fieldset>
+    <fieldset class="segmente choix-page">
+      <legend>{tx.page}</legend>
+      {PAGES.map((p) => (
+        <label><input type="radio" name="page" value={p} checked={p === "accueil"} disabled={!pagesDe("famille").includes(p)} /><span>{tx.pages[p]}</span></label>
+      ))}
+    </fieldset>
+    <div class="demo-reglages">
+      <fieldset class="segmente">
+        <legend>{tx.ecran}</legend>
+        {ECRANS.map((e) => <label><input type="radio" name="ecran" value={e} checked={e === "ordinateur"} /><span>{tx.ecrans[e]}</span></label>)}
+      </fieldset>
+      <fieldset class="segmente">
+        <legend>{tx.theme}</legend>
+        {THEMES.map((t) => <label><input type="radio" name="theme" value={t} checked={t === "clair"} /><span>{tx.themes[t]}</span></label>)}
+      </fieldset>
+    </div>
+  </form>
+  <figure id="demo-ecran" class="demo-ecran ordinateur" aria-live="polite">
+    <img src={depart.src} srcset={depart.srcset} width={depart.width} height={depart.height}
+      sizes="(min-width: 1240px) 1180px, 94vw" alt={alt("famille", "accueil", "ordinateur", "clair")} decoding="async" fetchpriority="high" />
+  </figure>
+  <p class="note">{tx.note}</p>
+</div>
+
+<script>
+  type Rendu = { src: string; srcset: string; width: number; height: number };
+  for (const demo of document.querySelectorAll<HTMLElement>(".demo")) {
+    const images: Record<string, Rendu> = JSON.parse(demo.dataset.images ?? "{}");
+    const pages: Record<string, string[]> = JSON.parse(demo.dataset.pages ?? "{}");
+    const textes = JSON.parse(demo.dataset.textes ?? "{}");
+    const formulaire = demo.querySelector("form")!;
+    const ecran = demo.querySelector<HTMLElement>(".demo-ecran")!;
+    const img = ecran.querySelector("img")!;
+    const choisi = (nom: string) => (formulaire.elements.namedItem(nom) as RadioNodeList).value;
+
+    // Le thème de l'appareil du visiteur, au départ.
+    if (matchMedia("(prefers-color-scheme: dark)").matches) {
+      (formulaire.querySelector("input[name=theme][value=sombre]") as HTMLInputElement).checked = true;
+    }
+
+    let derniere = 0;
+    const afficher = async () => {
+      const maison = choisi("maison");
+      // Les pages qui existent dans cette maison ; sinon, l'accueil.
+      for (const entree of formulaire.querySelectorAll<HTMLInputElement>("input[name=page]")) {
+        entree.disabled = !pages[maison].includes(entree.value);
+      }
+      if (!pages[maison].includes(choisi("page"))) {
+        (formulaire.querySelector("input[name=page][value=accueil]") as HTMLInputElement).checked = true;
+      }
+      const [page, appareil, theme] = [choisi("page"), choisi("ecran"), choisi("theme")];
+      const rendu = images[`${maison}/${page}/${appareil}/${theme}`] ?? images[`${maison}/${page}/${appareil}/clair`];
+      if (!rendu) return;
+      // L'image suivante est chargée à part, puis échangée : jamais de cadre vide pendant le chargement.
+      const demande = ++derniere;
+      const sizes = appareil === "ordinateur" ? "(min-width: 1240px) 1180px, 94vw" : "(min-width: 600px) 390px, 90vw";
+      const suivante = new Image();
+      suivante.sizes = sizes;
+      suivante.srcset = rendu.srcset;
+      suivante.src = rendu.src;
+      ecran.setAttribute("aria-busy", "true");
+      await suivante.decode().catch(() => undefined);
+      if (demande !== derniere) return;
+      ecran.removeAttribute("aria-busy");
+      ecran.className = `demo-ecran ${appareil}`;
+      img.sizes = sizes;
+      img.srcset = rendu.srcset;
+      img.src = rendu.src;
+      img.width = rendu.width;
+      img.height = rendu.height;
+      img.alt = textes.modele.replace("{m}", textes.maisons[maison][0]).replace("{p}", textes.pages[page])
+        .replace("{e}", textes.ecrans[appareil].toLowerCase()).replace("{t}", textes.themes[theme].toLowerCase());
+    };
+    formulaire.addEventListener("change", afficher);
+    formulaire.addEventListener("submit", (ev) => ev.preventDefault());
+    afficher();
+  }
+</script>

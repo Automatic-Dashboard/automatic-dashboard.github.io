@@ -1,0 +1,18 @@
+{
+  "name": "automatic-dashboard-site",
+  "private": true,
+  "version": "2026.12.0",
+  "description": "Le site d'Automatic Dashboard : présentation, démo et documentation, en français et en anglais.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "captures": "node scripts/importer-captures.mjs ../automatic-dashboard"
+  },
+  "dependencies": {
+    "astro": "^7.4.12",
+    "sharp": "^0.35.5"
+  }
+}

@@ -1,0 +1,38 @@
+---
+// Une capture du tableau, en thème clair ou sombre selon le réglage de l'appareil du visiteur.
+// Les images sont converties en WebP à plusieurs largeurs à la construction du site.
+import { getImage } from "astro:assets";
+import { capture } from "../captures";
+import type { Langue } from "../i18n/textes";
+
+interface Props {
+  lang: Langue;
+  maison: string;
+  /** Le nom sans le thème : « accueil-ordinateur », « carte-points »… */
+  nom: string;
+  alt: string;
+  largeurs: number[];
+  sizes: string;
+  class?: string;
+  chargement?: "lazy" | "eager";
+  /** Toujours la version claire (comparaison avec la vue native, qui n'existe qu'en clair). */
+  clairSeulement?: boolean;
+}
+
+const { lang, maison, nom, alt, largeurs, sizes, class: classe, chargement = "lazy", clairSeulement = false } = Astro.props;
+const clair = capture(lang, maison, `${nom}-clair`) ?? capture(lang, maison, nom);
+if (!clair) throw new Error(`Capture introuvable : ${lang}/${maison}/${nom}`);
+const sombre = clairSeulement ? undefined : capture(lang, maison, `${nom}-sombre`);
+
+const jeu = async (image: ImageMetadata) => {
+  const tailles = largeurs.filter((l) => l <= image.width);
+  const rendus = await Promise.all((tailles.length ? tailles : [image.width]).map((width) => getImage({ src: image, width, format: "webp", quality: 82 })));
+  return { src: rendus[rendus.length - 1].src, srcset: rendus.map((r) => `${r.src} ${r.attributes.width}w`).join(", ") };
+};
+const imageClaire = await jeu(clair);
+const imageSombre = sombre ? await jeu(sombre) : undefined;
+---
+<picture class={classe}>
+  {imageSombre && <source media="(prefers-color-scheme: dark)" srcset={imageSombre.srcset} sizes={sizes} type="image/webp" />}
+  <img src={imageClaire.src} srcset={imageClaire.srcset} sizes={sizes} width={clair.width} height={clair.height} alt={alt} loading={chargement} decoding="async" fetchpriority={chargement === "eager" ? "high" : undefined} />
+</picture>
