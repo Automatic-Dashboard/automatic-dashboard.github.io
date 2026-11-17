@@ -206,4 +206,4 @@ frontend:
 
 ## Contribuer
 
-Chaque vraie maison améliore Automatic Dashboard. Signaler un appareil mal rangé, traduire, relire les textes ou proposer du code : le [guide de contribution](https://github.com/Automatic-Dashboard/automatic-dashboard/blob/main/CONTRIBUTING.md) explique comment.
+Chaque vraie maison améliore Automatic Dashboard. Signaler un appareil mal rangé, traduire, relire les textes ou proposer du code : le [guide de contribution](https://github.com/Automatic-Dashboard/automatic-dashboard/blob/main/.github/CONTRIBUTING.md) explique comment.

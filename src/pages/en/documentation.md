@@ -206,4 +206,4 @@ frontend:
 
 ## Contribute
 
-Every real home makes Automatic Dashboard better. Reporting a misplaced device, translating, proofreading texts or proposing code: the [contributing guide](https://github.com/Automatic-Dashboard/automatic-dashboard/blob/main/CONTRIBUTING.md) explains how. Contributions in English are welcome.
+Every real home makes Automatic Dashboard better. Reporting a misplaced device, translating, proofreading texts or proposing code: the [contributing guide](https://github.com/Automatic-Dashboard/automatic-dashboard/blob/main/.github/CONTRIBUTING.md) explains how. Contributions in English are welcome.

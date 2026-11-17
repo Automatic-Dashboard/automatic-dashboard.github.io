@@ -1,5 +1,5 @@
 // Importe les captures prises par dev/scripts/captures.py dans le dépôt de l'intégration
-// (docs/captures/v1/) : converties en WebP, rangées par langue et par maison.
+// (dev/captures/, hors de git) : converties en WebP, rangées par langue et par maison.
 // Usage : node scripts/importer-captures.mjs [chemin du dépôt de l'intégration]
 
 import { mkdir, readdir } from "node:fs/promises";
@@ -7,7 +7,7 @@ import { join } from "node:path";
 import sharp from "sharp";
 
 const depot = process.argv[2] ?? "../automatic-dashboard";
-const source = join(depot, "docs", "captures", "v1");
+const source = join(depot, "dev", "captures");
 const cible = new URL("../src/assets/captures/", import.meta.url).pathname;
 
 for (const dossier of await readdir(source)) {
