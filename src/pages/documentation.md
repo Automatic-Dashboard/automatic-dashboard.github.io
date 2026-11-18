@@ -181,6 +181,10 @@ Votre diagnostic devient un cas de test : l'erreur est corrigée pour tout le mo
 
 **Le tableau n'apparaît pas dans la barre latérale.** Rechargez la page. S'il n'est toujours pas là, ajoutez-le à la main : *Paramètres*, *Tableaux de bord*, *Ajouter un tableau de bord*, rubrique « Tableaux de bord communautaires », **Automatic Dashboard**.
 
+**« Error loading the dashboard strategy » ou « Timeout waiting for strategy element ».** Le navigateur n'a pas pu charger le fichier du tableau. Rechargez la page en vidant le cache (Ctrl + Maj + R, ou ⌘ + Maj + R sur Mac). Si vous venez d'installer ou de mettre à jour Automatic Dashboard, redémarrez Home Assistant (*Paramètres*, *Système*, en haut à droite). Dans l'application mobile, videz le cache de l'interface depuis les réglages de l'application.
+
+**« Le tableau n'a pas pu se construire ».** Automatic Dashboard a rencontré une erreur en lisant votre maison ; la page dit quoi faire. Si l'erreur revient, [signalez-la](https://github.com/Automatic-Dashboard/automatic-dashboard/issues/new?template=2-probleme.yml) avec le message affiché.
+
 **Un appareil n'apparaît pas.** Vérifiez qu'il a une pièce, qu'il n'est pas masqué dans Home Assistant et que son entité n'est pas rangée en « diagnostic ». Sinon, [signalez-le](#signaler-un-problème).
 
 **Un capteur technique apparaît dans une pièce.** Masquez-le dans les réglages (ou posez l'étiquette « masquer »), et signalez-le.

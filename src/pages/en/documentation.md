@@ -181,6 +181,10 @@ Your diagnostic becomes a test case: the mistake is fixed for everyone, and neve
 
 **The dashboard is not in the sidebar.** Reload the page. If it's still not there, add it by hand: *Settings*, *Dashboards*, *Add dashboard*, "Community dashboards" section, **Automatic Dashboard**.
 
+**"Error loading the dashboard strategy" or "Timeout waiting for strategy element".** The browser could not load the dashboard file. Reload the page while clearing the cache (Ctrl + Shift + R, or ⌘ + Shift + R on a Mac). If you just installed or updated Automatic Dashboard, restart Home Assistant (*Settings*, *System*, top right). In the mobile app, clear the frontend cache from the app settings.
+
+**"The dashboard could not be built".** Automatic Dashboard ran into an error while reading your home; the page says what to do. If the error comes back, [report it](https://github.com/Automatic-Dashboard/automatic-dashboard/issues/new?template=2-probleme.yml) with the message shown.
+
 **A device does not appear.** Check that it has an area, that it is not hidden in Home Assistant, and that its entity is not in the "diagnostic" category. Otherwise, [report it](#report-a-problem).
 
 **A technical sensor appears in a room.** Hide it in the settings (or put the "hide" label on it), and report it.
