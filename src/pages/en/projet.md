@@ -5,7 +5,7 @@ page: projet/
 titre: The project
 surtitre: The project
 chapo: A complete dashboard for every Home Assistant user, free, open source and with no data collected.
-description: Why Automatic Dashboard exists, its principles, who makes it, how to support it, and what comes next.
+description: Why Automatic Dashboard exists, its principles, who makes it, how to help, and what comes next.
 ---
 
 ## Why Automatic Dashboard
@@ -31,11 +31,11 @@ It says what the project does: a dashboard that builds itself from what Home Ass
 
 Automatic Dashboard is a community project started by **Antonin Chenavaz**, who wanted to make the dashboard he built at home easy for everyone. The code is open: anyone can report a misplaced device, translate, proofread or suggest an improvement, in English or in French.
 
-## Support it
+## Help it
 
-Automatic Dashboard sells nothing and never will: no paid features, no "pro" version, nothing reserved for donors. Donations, through [GitHub Sponsors](https://github.com/sponsors/antoninche), fund the time spent maintaining it and following every new Home Assistant release.
+Automatic Dashboard sells nothing and never will: no paid features, no "pro" version, nothing to unlock.
 
-The other way to help, just as valuable: install it, and [tell what goes wrong](https://github.com/Automatic-Dashboard/automatic-dashboard/issues/new/choose).
+The best way to help: install it, and [tell what goes wrong](https://github.com/Automatic-Dashboard/automatic-dashboard/issues/new/choose). Every home makes the dashboard better for everyone. A star on [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard) also helps other people find it.
 
 ## What comes next
 

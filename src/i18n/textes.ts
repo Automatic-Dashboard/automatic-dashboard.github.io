@@ -6,7 +6,6 @@ import { typographier } from "../typographie";
 export type Langue = "fr" | "en";
 
 export const DEPOT = "https://github.com/Automatic-Dashboard/automatic-dashboard";
-export const DONS = "https://github.com/sponsors/antoninche";
 export const LIEN_MARKETPLACE = "https://my.home-assistant.io/redirect/marketplace_repositories/";
 export const LIEN_INTEGRATION = "https://my.home-assistant.io/redirect/config_flow_start/?domain=automatic_dashboard";
 export const LIEN_TABLEAUX = "https://my.home-assistant.io/redirect/lovelace_dashboards/";
@@ -25,7 +24,6 @@ const BRUT = {
       licence: "Code sous licence Apache 2.0. Le nom, le logo et le symbole d'Automatic Dashboard restent réservés.",
       marque: "Home Assistant est une marque de l'Open Home Foundation. Automatic Dashboard n'y est pas affilié.",
       vieprivee: "Ce site ne dépose aucun cookie et ne mesure pas l'audience.",
-      dons: "Soutenir le projet",
       notes: "Journal des versions",
     },
     accueil: {
@@ -88,7 +86,7 @@ const BRUT = {
       projetSurtitre: "Un projet libre",
       projetTitre: "Rien à vendre, rien à collecter.",
       engagements: [
-        ["Gratuit, pour toujours", "Aucune fonction payante, aucune version « pro », rien de réservé à ceux qui donnent."],
+        ["Gratuit, pour toujours", "Aucune fonction payante, aucune version « pro », rien à débloquer."],
         ["Vos données restent chez vous", "Le tableau lit ce que Home Assistant sait déjà, dans votre navigateur. Il ne contacte aucun service."],
         ["Fait avec la communauté", "Code ouvert sous licence Apache 2.0 ; chaque maison qui signale un appareil mal rangé améliore le tableau de tous."],
       ],
@@ -128,7 +126,6 @@ const BRUT = {
       licence: "Code under the Apache 2.0 license. The Automatic Dashboard name, logo and symbol remain reserved.",
       marque: "Home Assistant is a trademark of the Open Home Foundation. Automatic Dashboard is not affiliated with it.",
       vieprivee: "This site sets no cookies and does not measure its audience.",
-      dons: "Support the project",
       notes: "Changelog",
     },
     accueil: {
@@ -191,7 +188,7 @@ const BRUT = {
       projetSurtitre: "A free project",
       projetTitre: "Nothing to sell, nothing to collect.",
       engagements: [
-        ["Free, forever", "No paid features, no \"pro\" version, nothing reserved for donors."],
+        ["Free, forever", "No paid features, no \"pro\" version, nothing to unlock."],
         ["Your data stays home", "The dashboard reads what Home Assistant already knows, in your browser. It contacts no service."],
         ["Made with the community", "Open code under the Apache 2.0 license; every home that reports a misplaced device improves the dashboard for everyone."],
       ],

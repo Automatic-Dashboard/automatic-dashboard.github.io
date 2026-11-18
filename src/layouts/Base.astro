@@ -3,7 +3,7 @@
 // Aucune ressource extérieure : la police et les images sont servies avec le site.
 import Logo from "../components/Logo.astro";
 import "../styles/site.css";
-import { chemin, DEPOT, DONS, type Langue, TEXTES } from "../i18n/textes";
+import { chemin, DEPOT, type Langue, TEXTES } from "../i18n/textes";
 
 interface Props {
   lang: Langue;
@@ -92,7 +92,6 @@ const actif = (cible: string) => (page === cible ? "page" : undefined);
             <li><a href={chemin(lang, "projet/")}>{tx.nav.projet}</a></li>
             <li><a href={DEPOT}>{tx.nav.github}</a></li>
             <li><a href={`${DEPOT}/blob/main/CHANGELOG.md`}>{tx.pied.notes}</a></li>
-            <li><a href={DONS}>{tx.pied.dons}</a></li>
           </ul>
         </nav>
         <div class="pied-mentions">

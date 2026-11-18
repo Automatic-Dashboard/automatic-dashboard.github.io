@@ -5,7 +5,7 @@ page: projet/
 titre: Le projet
 surtitre: Le projet
 chapo: Un tableau de bord complet pour tous les utilisateurs de Home Assistant, libre, gratuit et sans collecte de données.
-description: Pourquoi Automatic Dashboard existe, ses principes, qui le fait, comment le soutenir, et ce qui vient ensuite.
+description: Pourquoi Automatic Dashboard existe, ses principes, qui le fait, comment l'aider, et ce qui vient ensuite.
 ---
 
 ## Pourquoi Automatic Dashboard
@@ -31,11 +31,11 @@ Il dit ce que fait le projet : un tableau de bord qui se construit tout seul, à
 
 Automatic Dashboard est un projet communautaire, initié par **Antonin Chenavaz**, qui voulait rendre facile pour tous le tableau qu'il a construit chez lui. Le code est ouvert : chacun peut signaler un appareil mal rangé, traduire, relire ou proposer une amélioration, en français ou en anglais.
 
-## Le soutenir
+## L'aider
 
-Automatic Dashboard ne vend rien et ne vendra rien : aucune fonction payante, aucune version « pro », rien de réservé à ceux qui donnent. Les dons, par [GitHub Sponsors](https://github.com/sponsors/antoninche), financent le temps passé à le maintenir et à suivre chaque nouvelle version de Home Assistant.
+Automatic Dashboard ne vend rien et ne vendra rien : aucune fonction payante, aucune version « pro », rien à débloquer.
 
-L'autre façon d'aider, tout aussi précieuse : l'installer, et [dire ce qui ne va pas](https://github.com/Automatic-Dashboard/automatic-dashboard/issues/new/choose).
+La meilleure façon d'aider : l'installer, et [dire ce qui ne va pas](https://github.com/Automatic-Dashboard/automatic-dashboard/issues/new/choose). Chaque maison rend le tableau meilleur pour tout le monde. Une étoile sur [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard) aide aussi d'autres personnes à le trouver.
 
 ## Et ensuite
 
