@@ -39,7 +39,7 @@ The best way to help: install it, and [tell what goes wrong](https://github.com/
 
 ## What comes next
 
-The first version is here. Next steps: joining the official catalog of the Home Assistant Marketplace, community translations and Automatic Dashboard sections to drop into any dashboard. Progress is tracked on [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard).
+The first version is here. Next steps: joining the official catalog of the Home Assistant Marketplace, community translations and Automatic Dashboard sections to drop into any dashboard. Everything is in the [roadmap](https://github.com/Automatic-Dashboard/automatic-dashboard/milestones), one version after another; anyone can comment or pick a topic, starting with [the easiest ones](https://github.com/Automatic-Dashboard/automatic-dashboard/issues?q=is%3Aopen+label%3A%22good+first+issue%22).
 
 ## License and trademark
 

@@ -39,7 +39,7 @@ La meilleure façon d'aider : l'installer, et [dire ce qui ne va pas](https://gi
 
 ## Et ensuite
 
-La première version est là. Les prochaines étapes : l'inscription au catalogue officiel du Marketplace de Home Assistant, les traductions par la communauté et des sections Automatic Dashboard à glisser dans n'importe quel tableau. Le détail est suivi sur [GitHub](https://github.com/Automatic-Dashboard/automatic-dashboard).
+La première version est là. Les prochaines étapes : l'inscription au catalogue officiel du Marketplace de Home Assistant, les traductions par la communauté et des sections Automatic Dashboard à glisser dans n'importe quel tableau. Tout est dans la [feuille de route](https://github.com/Automatic-Dashboard/automatic-dashboard/milestones), une version après l'autre ; chacun peut y donner son avis ou prendre un sujet, à commencer par [les plus simples](https://github.com/Automatic-Dashboard/automatic-dashboard/issues?q=is%3Aopen+label%3A%22good+first+issue%22).
 
 ## Licence et marque
 
