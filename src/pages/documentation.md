@@ -136,6 +136,29 @@ Les réglages sont ceux du tableau, communs à tous les comptes (sauf « Mes fav
 - **Le bilan.** Chaque lundi (et le 1er du mois), un point annonce le bilan. Il compare l'énergie à la période d'avant et donne son **coût** quand un prix est déclaré dans les réglages Énergie de Home Assistant (voir plus bas).
 - **À ranger propose la pièce.** Quand le nom d'un appareil sans pièce désigne une pièce (« Lampe du salon »), le bouton « Salon ? » la règle en un clic, avec *Annuler*. Réservé aux administrateurs ; les autres voient la proposition.
 
+## Dans votre propre tableau
+
+Vous tenez à votre tableau ? Ajoutez-y seulement des morceaux d'Automatic Dashboard : ils se construisent tout seuls et suivent la maison, comme le tableau complet.
+
+1. Sur votre tableau, *Modifier le tableau de bord* (le crayon), puis *Créer une section*.
+2. Choisissez *Section automatique* (« Automatic section » si Home Assistant ne l'a pas encore traduit), puis une section d'Automatic Dashboard, dans les sections de la communauté :
+   - **l'état de la maison** : la maison en une phrase, le ciel du jour et les points à regarder ;
+   - **en ce moment** : musique, présences, rendez-vous, machines en marche, courses ;
+   - **le climat** : dedans, dehors, l'humidité, la courbe du jour et le confort pièce par pièce ;
+   - **le système** : les mises à jour, la dernière sauvegarde et l'état de Home Assistant ;
+   - **à ranger** : les appareils sans pièce, avec la pièce proposée en un clic ;
+   - **avant de partir** : ce qui reste ouvert, allumé ou déverrouillé, et un bouton par geste.
+
+Chaque section accepte les mêmes réglages que le tableau, à écrire dans sa configuration (*Modifier en YAML*) :
+
+```yaml
+strategy:
+  type: custom:automatic-dashboard-climat
+  pieces: mosaique        # les pièces en mosaïque plutôt qu'en barres
+  masquer:
+    - sensor.temperature_cave
+```
+
 ## Les étiquettes de réglage en masse
 
 L'intégration crée trois étiquettes dans Home Assistant (*Paramètres*, *Étiquettes*). Posez-les sur des dizaines d'entités, d'appareils ou de pièces d'un coup, depuis les listes de Home Assistant :

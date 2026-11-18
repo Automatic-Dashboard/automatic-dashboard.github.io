@@ -320,3 +320,9 @@ p { margin: 0; }
 .prose table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: block; overflow-x: auto; }
 .prose th, .prose td { text-align: left; vertical-align: top; padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--ligne); }
 .prose th { color: var(--encre); font-weight: 650; border-bottom-width: 2px; }
+
+/* La démo en direct : le vrai tableau, posé comme un écran */
+.demo-interactive { margin: 0 0 clamp(3rem, 6vw, 5rem); }
+.demo-interactive .section-tete { margin-bottom: 1.25rem; }
+automatic-dashboard-demo { display: block; min-height: 480px; }
+.demo-captures-titre { margin: 0 0 1.25rem; font-size: clamp(1.4rem, 2.5vw, 1.9rem); letter-spacing: -0.02em; }

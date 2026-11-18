@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "captures": "node scripts/importer-captures.mjs ../automatic-dashboard"
+    "captures": "node scripts/importer-captures.mjs ../automatic-dashboard",
+    "demo": "node scripts/importer-demo.mjs ../automatic-dashboard"
   },
   "dependencies": {
     "astro": "^7.4.12",

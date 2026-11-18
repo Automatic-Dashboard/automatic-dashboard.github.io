@@ -1,5 +1,6 @@
 ---
 import Demo from "../components/Demo.astro";
+import DemoInteractive from "../components/DemoInteractive.astro";
 import { chemin, TEXTES } from "../i18n/textes";
 import Base from "../layouts/Base.astro";
 const tx = TEXTES.fr.demo;
@@ -12,7 +13,11 @@ const tx = TEXTES.fr.demo;
       <p class="chapo">{tx.chapo}</p>
     </div>
   </div>
-  <div class="conteneur"><Demo lang="fr" /></div>
+  <div class="conteneur"><DemoInteractive lang="fr" /></div>
+  <div class="conteneur">
+    <h2 class="demo-captures-titre">{tx.capturesTitre}</h2>
+    <Demo lang="fr" />
+  </div>
   <div class="conteneur fin-de-page">
     <p>{tx.essayer}</p>
     <a class="bouton bouton-plein" href={`${chemin("fr")}#installer`}>{TEXTES.fr.accueil.installer}</a>

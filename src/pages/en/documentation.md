@@ -136,6 +136,29 @@ Settings belong to the dashboard and are shared by all accounts (except "My favo
 - **The report.** Every Monday (and on the 1st of the month), an item announces the report. It compares energy with the period before and gives its **cost** when a price is set in Home Assistant's Energy settings (see below).
 - **To sort suggests the room.** When the name of a device without an area names a room ("Living room lamp"), the "Living room?" button sets it in one click, with *Undo*. Administrators only; others see the suggestion.
 
+## In your own dashboard
+
+Attached to your dashboard? Add just parts of Automatic Dashboard to it: they build themselves and follow the home, like the full dashboard.
+
+1. On your dashboard, *Edit dashboard* (the pencil), then *Create section*.
+2. Choose *Automatic section*, then an Automatic Dashboard section, among the community sections:
+   - **the state of the home**: the home in one sentence, today's sky and the things to check;
+   - **right now**: music, who's home, appointments, running machines, shopping list;
+   - **climate**: inside, outside, humidity, today's curve and comfort room by room;
+   - **system**: updates, the last backup and the state of Home Assistant;
+   - **to sort**: devices without a room, with the suggested room in one click;
+   - **before leaving**: what is still open, on or unlocked, with one button per action.
+
+Each section accepts the same settings as the dashboard, written in its configuration (*Edit in YAML*):
+
+```yaml
+strategy:
+  type: custom:automatic-dashboard-climat
+  pieces: mosaique        # rooms as a mosaic instead of bars
+  masquer:
+    - sensor.cellar_temperature
+```
+
 ## Bulk-setting labels
 
 The integration creates three labels in Home Assistant (*Settings*, *Labels*). Put them on dozens of entities, devices or areas at once, from Home Assistant's lists:

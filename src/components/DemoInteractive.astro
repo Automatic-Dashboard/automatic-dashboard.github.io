@@ -1,0 +1,20 @@
+---
+// La démo interactive : le vrai tableau Automatic Dashboard, sur une maison fictive, dans la page.
+// Le fichier vient du dépôt de l'intégration (npm run demo). Sans JavaScript, ce bloc reste vide
+// et la démo en captures, juste en dessous, reste utilisable.
+import { type Langue, TEXTES } from "../i18n/textes";
+
+interface Props { lang: Langue }
+const { lang } = Astro.props;
+const tx = TEXTES[lang].demo;
+---
+<section class="demo-interactive" aria-labelledby="demo-interactive-titre">
+  <header class="section-tete">
+    <p class="surtitre">{tx.interactifSurtitre}</p>
+    <h2 id="demo-interactive-titre">{tx.interactifTitre}</h2>
+    <p class="chapo">{tx.interactifChapo}</p>
+  </header>
+  <automatic-dashboard-demo></automatic-dashboard-demo>
+  <noscript><p class="note">{tx.interactifSansScript}</p></noscript>
+</section>
+<script is:inline type="module" src="/interactif/automatic-dashboard-demo.js"></script>
